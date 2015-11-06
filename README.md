@@ -5,34 +5,34 @@ Webpack + React + Babel
 
 配置这东西，没有为什么，跟着抄呗
 	
-	```js
-    gulp.task("webpack-dev-server", function(callback) {
-        // modify some webpack config options
-        var myConfig = Object.create(webpackConfig);
-        myConfig.devtool = "eval";
-        myConfig.debug = true;
-        // HMR server url !!important
-        myConfig.output.publicPath = "http://localhost:8000/";
-        // add HMR plugin
-        myConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
-        // add HMR entry !!important
-        myConfig.entry.common.unshift("webpack-dev-server/client?http://localhost:8000","webpack/hot/dev-server");
+```js
+gulp.task("webpack-dev-server", function(callback) {
+    // modify some webpack config options
+    var myConfig = Object.create(webpackConfig);
+    myConfig.devtool = "eval";
+    myConfig.debug = true;
+    // HMR server url !!important
+    myConfig.output.publicPath = "http://localhost:8000/";
+    // add HMR plugin
+    myConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
+    // add HMR entry !!important
+    myConfig.entry.common.unshift("webpack-dev-server/client?http://localhost:8000","webpack/hot/dev-server");
 
-        // Start a webpack-dev-server
-        new WebpackDevServer(webpack(myConfig), {
-            // url path for built files !!important
-            publicPath: '/dist/',
-            // enable HMR !!important
-            hot: true,
-            stats: {
-                colors: true
-            }
-        }).listen(8000, "localhost", function(err) {
-            if(err) throw new gutil.PluginError("webpack-dev-server", err);
-            gutil.log("[webpack-dev-server]", "http://localhost:8000");
-        });
+    // Start a webpack-dev-server
+    new WebpackDevServer(webpack(myConfig), {
+        // url path for built files !!important
+        publicPath: '/dist/',
+        // enable HMR !!important
+        hot: true,
+        stats: {
+            colors: true
+        }
+    }).listen(8000, "localhost", function(err) {
+        if(err) throw new gutil.PluginError("webpack-dev-server", err);
+        gutil.log("[webpack-dev-server]", "http://localhost:8000");
     });
-    ```
+});
+```
 
 
 ## Babel升级问题
