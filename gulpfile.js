@@ -63,13 +63,10 @@ gulp.task("webpack-dev-server", function(callback) {
     var myConfig = Object.create(webpackConfig);
     myConfig.devtool = "eval";
     myConfig.debug = true;
-    // HMR server url !!important
-    myConfig.output.publicPath = "http://localhost:8000/";
     // add HMR plugin
     myConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
     // add HMR entry !!important
     myConfig.entry.common.unshift("webpack-dev-server/client?http://localhost:8000","webpack/hot/dev-server");
-
     // Start a webpack-dev-server
     new WebpackDevServer(webpack(myConfig), {
         // url path for built files !!important
@@ -86,5 +83,5 @@ gulp.task("webpack-dev-server", function(callback) {
 });
 
 // The development server (the recommended option for development)
-gulp.task("default", ["webpack-dev-server]);
+gulp.task("default", ["webpack-dev-server"]);
 
