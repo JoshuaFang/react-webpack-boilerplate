@@ -44,12 +44,19 @@ webpackJsonp([0],{
 	});
 	exports.default = {
 	    path: "/",
-	    component: __webpack_require__(210),
+	    component: __webpack_require__(210).default,
 	    childRoutes: [{
 	        path: "product-table",
 	        getComponent: function getComponent(location, cb) {
 	            __webpack_require__.e/* nsure */(1, function (require) {
-	                cb(null, __webpack_require__(211));
+	                cb(null, __webpack_require__(211).default);
+	            });
+	        }
+	    }, {
+	        path: "about",
+	        getComponent: function getComponent(location, cb) {
+	            __webpack_require__.e/* nsure */(2, function (require) {
+	                cb(null, __webpack_require__(212).default);
 	            });
 	        }
 	    }]
@@ -71,6 +78,8 @@ webpackJsonp([0],{
 	var _react = __webpack_require__(1);
 	
 	var _react2 = _interopRequireDefault(_react);
+	
+	var _reactRouter = __webpack_require__(159);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -101,9 +110,19 @@ webpackJsonp([0],{
 	                    'This is a demo'
 	                ),
 	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/product-table' },
+	                    'Product Table'
+	                ),
+	                _react2.default.createElement(
+	                    _reactRouter.Link,
+	                    { to: '/about', style: { marginLeft: "20px" } },
+	                    'About Page'
+	                ),
+	                _react2.default.createElement(
 	                    'div',
 	                    null,
-	                    this.props.children
+	                    this.props.children || 'Index Page'
 	                )
 	            );
 	        }

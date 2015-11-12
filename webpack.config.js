@@ -18,13 +18,9 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /router\.config\.js$/,
-                loader: __dirname + "/loaders/router-converter.js"
-            },
-            {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: "babel-loader?presets[]=es2015&presets[]=react"
+                loader: "babel-loader"
             }
         ]
     },

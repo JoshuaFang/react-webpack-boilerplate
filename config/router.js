@@ -1,8 +1,11 @@
 {
     path:'/',
     component: 'index',
-    children: {
+    children: [{
         path: 'products',
         component: 'product-table'
-    }
+    },{
+        path: 'about',
+        component: 'about'
+    }]
 }
