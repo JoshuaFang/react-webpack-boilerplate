@@ -9,6 +9,4 @@ const rootRouter = {
     childRoutes: [ router ]
 };
 
-console.log(rootRouter);
-
 ReactDOM.render(<Router routes={rootRouter} />, document.getElementById('content'));

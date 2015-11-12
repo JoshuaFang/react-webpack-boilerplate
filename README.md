@@ -11,13 +11,10 @@ gulp.task("webpack-dev-server", function(callback) {
     var myConfig = Object.create(webpackConfig);
     myConfig.devtool = "eval";
     myConfig.debug = true;
-    // HMR server url !!important
-    myConfig.output.publicPath = "http://localhost:8000/";
     // add HMR plugin
     myConfig.plugins.push(new webpack.HotModuleReplacementPlugin());
     // add HMR entry !!important
     myConfig.entry.common.unshift("webpack-dev-server/client?http://localhost:8000","webpack/hot/dev-server");
-
     // Start a webpack-dev-server
     new WebpackDevServer(webpack(myConfig), {
         // url path for built files !!important
@@ -51,4 +48,6 @@ gulp.task("webpack-dev-server", function(callback) {
 	{
 		presets: ["es2015", "react"]
 	}
+
+注意Babel升级后取消了原有的require/import混用的功能，使用require时，别忘了获取其default属性
 
