@@ -1,11 +1,16 @@
-{
+
+var base = "page/";
+
+module.exports = {
     path:'/',
-    component: 'index',
-    children: [{
-        path: 'products',
-        component: 'product-table'
-    },{
-        path: 'about',
-        component: 'about'
-    }]
+    staticComponent: base + 'index.jsx',
+    children: [
+        {
+            path: 'product-table',
+            component: base + 'product-table.jsx'
+        },{
+            path: 'about',
+            component: base + 'about.jsx'
+        }
+    ]
 }

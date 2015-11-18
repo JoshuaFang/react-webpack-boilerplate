@@ -28,8 +28,6 @@ webpackJsonp([0],{
 	    childRoutes: [_routerConverted2.default]
 	};
 	
-	console.log(rootRouter);
-	
 	_reactDom2.default.render(_react2.default.createElement(_reactRouter2.default, { routes: rootRouter }), document.getElementById('content'));
 
 /***/ },
@@ -40,26 +38,28 @@ webpackJsonp([0],{
 	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
-	    value: true
+	  value: true
 	});
+	/* Don't modify! Created by router-converter. */
+	
 	exports.default = {
-	    path: "/",
-	    component: __webpack_require__(210).default,
-	    childRoutes: [{
-	        path: "product-table",
-	        getComponent: function getComponent(location, cb) {
-	            __webpack_require__.e/* nsure */(1, function (require) {
-	                cb(null, __webpack_require__(211).default);
-	            });
-	        }
-	    }, {
-	        path: "about",
-	        getComponent: function getComponent(location, cb) {
-	            __webpack_require__.e/* nsure */(2, function (require) {
-	                cb(null, __webpack_require__(212).default);
-	            });
-	        }
-	    }]
+	  path: "/",
+	  component: __webpack_require__(210).default,
+	  childRoutes: [{
+	    path: "product-table",
+	    getComponent: function getComponent(location, cb) {
+	      __webpack_require__.e/* nsure */(1, function (require) {
+	        cb(null, __webpack_require__(211).default);
+	      });
+	    }
+	  }, {
+	    path: "about",
+	    getComponent: function getComponent(location, cb) {
+	      __webpack_require__.e/* nsure */(2, function (require) {
+	        cb(null, __webpack_require__(212).default);
+	      });
+	    }
+	  }]
 	};
 
 /***/ },

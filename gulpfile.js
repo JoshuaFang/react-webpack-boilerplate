@@ -3,14 +3,9 @@ var gutil = require("gulp-util");
 var webpack = require("webpack");
 var WebpackDevServer = require("webpack-dev-server");
 var webpackConfig = require("./webpack.config.js");
+var requireDir = require('require-dir');
 
-// Build and watch cycle (another option for development)
-// Advantage: No server required, can run app from filesystem
-// Disadvantage: Requests are not blocked until bundle is available,
-//               can serve an old app on refresh
-gulp.task("build-dev", ["webpack:build-dev"], function() {
-    gulp.watch(["app/**/*"], ["webpack:build-dev"]);
-});
+requireDir('./tasks');
 
 // Production build
 gulp.task("build", ["webpack:build"]);
@@ -83,5 +78,12 @@ gulp.task("webpack-dev-server", function(callback) {
 });
 
 // The development server (the recommended option for development)
-gulp.task("default", ["webpack-dev-server"]);
+gulp.task("default", ["convert-router", "webpack-dev-server"]);
 
+// Build and watch cycle (another option for development)
+// Advantage: No server required, can run app from filesystem
+// Disadvantage: Requests are not blocked until bundle is available,
+//               can serve an old app on refresh
+gulp.task("build-dev", ["convert-router", "webpack:build-dev"], function() {
+    gulp.watch(["page/**/*"], ["webpack:build-dev"]);
+});
