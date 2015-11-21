@@ -1,11 +1,10 @@
 
 var webpack = require('webpack');
+var AssetsPlugin = require('assets-webpack-plugin');
 
 module.exports = {
-    debug: true,
-    devtool: "source-map",
     entry: {
-        app: "./app.js",
+        app: "./app/app.js",
         common: [ "react", "react-dom", "react-router" ] 
     },
     output: {
@@ -25,9 +24,10 @@ module.exports = {
         ]
     },
     resolve: {
-        root: __dirname
+        root: __dirname + "/app"
     },
     plugins: [
-        new webpack.optimize.CommonsChunkPlugin("common", "common.js")
+        new webpack.optimize.CommonsChunkPlugin("common", "common.js"),
+        new AssetsPlugin({ path: "./tmp", filename: "assets.json" })
     ]
 }

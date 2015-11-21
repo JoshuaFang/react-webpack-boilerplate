@@ -9,6 +9,7 @@ class Index extends React.Component {
                 <h1>This is a demo</h1>
                 <Link to="/product-table">Product Table</Link>
                 <Link to="/about" style={{marginLeft: "20px"}}>About Page</Link>
+                <Link to="/page" style={{marginLeft: "20px"}}>Main Page</Link>
                 <div>{this.props.children || 'Index Page'}</div>
             </div>
         );

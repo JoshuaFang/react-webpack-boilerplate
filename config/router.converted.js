@@ -20,5 +20,13 @@ export default {
         });
       },
     },
+    {
+      path: "page(/:id)", 
+      getComponent(location, cb) {
+        require.ensure([], (require) => {
+          cb(null, require("page/page.jsx").default)
+        });
+      },
+    },
   ]
 }

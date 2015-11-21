@@ -11,6 +11,9 @@ module.exports = {
         },{
             path: 'about',
             component: base + 'about.jsx'
+        },{
+            path: 'page(/:id)',
+            component: base + 'page.jsx'
         }
     ]
 }
