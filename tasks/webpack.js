@@ -59,7 +59,14 @@ gulp.task("webpack-dev-server", function(callback) {
     // add HMR entry !!important
     myConfig.entry.common.unshift("webpack-dev-server/client?http://localhost:8000","webpack/hot/dev-server");
     // Start a webpack-dev-server
-    new WebpackDevServer(webpack(myConfig), {
+    new WebpackDevServer(webpack(myConfig, function(err, stats) {
+            // callback for built
+            if(err) throw new gutil.PluginError("webpack:build", err);
+            gutil.log("[webpack:build-dev]", stats.toString({
+                colors: true
+            }));
+            callback();
+        }), {
         // url path for built files !!important
         publicPath: '/dist/',
         // enable HMR !!important
@@ -70,6 +77,5 @@ gulp.task("webpack-dev-server", function(callback) {
     }).listen(8000, "localhost", function(err) {
         if(err) throw new gutil.PluginError("webpack-dev-server", err);
         gutil.log("[webpack-dev-server]", "http://localhost:8000");
-        callback();
     });
 });
