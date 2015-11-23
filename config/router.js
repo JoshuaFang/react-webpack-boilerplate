@@ -14,6 +14,9 @@ module.exports = {
         },{
             path: 'page(/:id)',
             component: base + 'page.jsx'
+        },{
+            path: 'redux',
+            component: base + 'redux.jsx'
         }
     ]
 }

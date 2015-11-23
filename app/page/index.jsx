@@ -10,6 +10,7 @@ class Index extends React.Component {
                 <Link to="/product-table">Product Table</Link>
                 <Link to="/about" style={{marginLeft: "20px"}}>About Page</Link>
                 <Link to="/page" style={{marginLeft: "20px"}}>Main Page</Link>
+                <Link to="/redux" style={{marginLeft: "20px"}}>Redux Demo</Link>
                 <div>{this.props.children || 'Index Page'}</div>
             </div>
         );

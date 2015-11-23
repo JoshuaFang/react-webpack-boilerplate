@@ -28,5 +28,13 @@ export default {
         });
       },
     },
+    {
+      path: "redux", 
+      getComponent(location, cb) {
+        require.ensure([], (require) => {
+          cb(null, require("page/redux.jsx").default)
+        });
+      },
+    },
   ]
 }

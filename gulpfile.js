@@ -24,8 +24,8 @@ gulp.task("default", function (cb) {
 
 // watch build files 
 gulp.task("build-dev", function (cb) {
-    runSequence(["convert-router", "clean"], "webpack-dev-server", "compile-html", function(){
-        gulp.watch(["page/**/*"], ["webpack:build-dev"]);
+    runSequence(["convert-router", "clean"], "webpack:build-dev", "compile-html", function(){
+        gulp.watch(["./app/**/*"], ["webpack:build-dev"]);
         cb();
     });
 });
